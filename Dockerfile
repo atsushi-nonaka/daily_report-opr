@@ -1,6 +1,8 @@
 FROM openresty/openresty:alpine
 
-RUN 
+RUN apk --no-cache add git 
+RUN git clone -b main https://github.com/atsushi-nonaka/daily_report-opr.git
+RUN cp sources/*lua /usr/local/lib
 
 COPY conf/nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
 
